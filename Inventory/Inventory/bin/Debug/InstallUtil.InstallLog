@@ -1,0 +1,48 @@
+﻿
+Spouštění instalace s podporou transakcí
+
+Zahajování instalační fáze instalace
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+V průběhu instalační fáze došlo k výjimce.
+System.InvalidOperationException: Uživatel zrušil instalaci služeb ve spustitelném souboru C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+
+Zahajování odvolací fáze instalace
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+Odvolací fáze byla úspěšně dokončena.
+
+Instalace s podporou transakcí byla dokončena.
+
+Spouštění instalace s podporou transakcí
+
+Zahajování instalační fáze instalace
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+V průběhu instalační fáze došlo k výjimce.
+System.Security.SecurityException: Zdroj nebyl nalezen, ale některé nebo všechny protokoly událostí nelze prohledat. Nepřístupné protokoly: Security, State.
+
+Zahajování odvolací fáze instalace
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+Odvolací fáze byla úspěšně dokončena.
+
+Instalace s podporou transakcí byla dokončena.
+
+Spouštění instalace s podporou transakcí
+
+Zahajování instalační fáze instalace
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+Instalační fáze byla úspěšně dokončena a začíná potvrzovací fáze.
+Prohlédněte si obsah souboru protokolu pro průběh sestavení C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe.
+Umístění souboru: C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+
+Potvrzovací fáze byla úspěšně dokončena.
+
+Instalace s podporou transakcí byla dokončena.
