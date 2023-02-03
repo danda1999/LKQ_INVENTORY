@@ -131,11 +131,6 @@ namespace Inventory
 
                     int substract = DateTime.Now.Subtract(File.GetLastWriteTime(Constanty.PATH_CONNECTION_TIME)).Days;
 
-                    using (StreamWriter sw = new StreamWriter(Constanty.PATH_FILE_LOGS, true))
-                    {
-                        sw.WriteLine("Substraction: {0}", substract);
-                    }
-
                     if (substract >= 1)
                     {
 
@@ -150,7 +145,7 @@ namespace Inventory
                         {
 
                             string name = Environment.MachineName;
-                            byte[] name_array = System.Text.Encoding.ASCII.GetBytes(name);
+                            byte[] name_array = Encoding.ASCII.GetBytes(name);
                             sender.Send(name_array);
 
 
@@ -161,6 +156,8 @@ namespace Inventory
                             {
                                 sw.WriteLine(DateTime.Now.ToString());
                             }
+
+                            
 
                         }
                     }
@@ -181,7 +178,7 @@ namespace Inventory
                     {
 
                         string name = Environment.MachineName;
-                        byte[] name_array = System.Text.Encoding.ASCII.GetBytes(name);
+                        byte[] name_array = Encoding.ASCII.GetBytes(name);
                         sender.Send(name_array);
 
                         sender.SendFile(Constanty.PATH_SHARE_FILE);
@@ -193,6 +190,7 @@ namespace Inventory
                         }
 
                     }
+
                     sender.Disconnect(false);
                     sender.Close();
                 }

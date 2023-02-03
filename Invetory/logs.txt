@@ -1,14 +1,15 @@
-End service: 01.26.2023 14:37
-Start service: 01.26.2023 14:38
-Services connection: 01.26.2023 14:38
-Connection close: 01.26.2023 14:38
-Replace service: 01.26.2023 14:44
-Services connection: 01.26.2023 14:44
-Substraction: 0
-Connection close: 01.26.2023 14:44
-Replace service: 01.26.2023 14:50
-Services connection: 01.26.2023 14:50
-Substraction: 0
-Connection close: 01.26.2023 14:50
-Replace service: 01.26.2023 14:56
-Nelze se připojit k serveru pro zpracování json file: 01.26.2023 14:56
+Start service: 02.03.2023 13:32
+Services connection: 02.03.2023 13:32
+Connection close: 02.03.2023 13:32
+Replace service: 02.03.2023 13:38
+Services connection: 02.03.2023 13:38
+Connection close: 02.03.2023 13:38
+Replace service: 02.03.2023 13:44
+Services connection: 02.03.2023 13:44
+Connection close: 02.03.2023 13:44
+Replace service: 02.03.2023 13:50
+Services connection: 02.03.2023 13:50
+Connection close: 02.03.2023 13:50
+Replace service: 02.03.2023 13:56
+Services connection: 02.03.2023 13:56
+Connection close: 02.03.2023 13:56

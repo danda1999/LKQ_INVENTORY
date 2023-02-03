@@ -5,14 +5,16 @@ import json
 
 HOST = '127.0.0.1' 
 SOCKET_LIST = []
+KLIENT_LIST = []
 RECV_BUFFER = 4096 
 PORT = 11111
 
 
 def chat_server():
     
-    name = "aaaaa"
     Name_bool = False
+    name = None
+    
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))
@@ -20,7 +22,7 @@ def chat_server():
     
     SOCKET_LIST.append(server_socket)
     
-    print("Chat start listen on port: " + str(PORT))
+    print("Server start listen on port: " + str(PORT))
     
     while True:
         ready_to_read,ready_to_write,in_error = select.select(SOCKET_LIST,[],[],0)
@@ -32,22 +34,31 @@ def chat_server():
                 SOCKET_LIST.append(sockfd)
                 print("Client (%s, %s) connected" % addr)
                 sockfd.send("LKQ2023I".encode())
+                client = dict()
+                client['fd'] = sockfd
+                client['name'] = None
+                KLIENT_LIST.append(client)
             else:
                 data = sock.recv(RECV_BUFFER)
                 if data:
-                    if Name_bool == False:
-                        name = data.decode()
-                        Name_bool = True
-                        
-                    else:
-                        data =json.loads(data)
-                        with open(str(name) + ".json", "w") as wf:
-                            json.dump(data, wf, indent=3)
-                        
+                    for x in KLIENT_LIST:
+                        if(sock == x['fd']):
+                            if(x['name'] == None):
+                                x['name'] = str(data)
+                            else:
+                                data = json.loads(data)
+                                with open(str(x['name']) + ".json", "w") as wf:
+                                    json.dump(data, wf, indent=3)
+                              
                 else:
                     if sock in SOCKET_LIST:
                         SOCKET_LIST.remove(sock)
                         print("Client was discconnect")
+                        for x in KLIENT_LIST:
+                            if(sock == x['fd']):
+                                KLIENT_LIST.remove(x)
+                    
+                    
                         
     
     

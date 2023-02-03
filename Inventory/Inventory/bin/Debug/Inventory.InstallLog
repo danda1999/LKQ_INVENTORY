@@ -270,3 +270,16 @@ Zasažené parametry:
    logtoconsole = 
    logfile = C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.InstallLog
    assemblypath = C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\bin\Debug\Inventory.exe
+Instalace sestavení C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe
+Zasažené parametry:
+   logtoconsole = 
+   logfile = C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+   assemblypath = C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe
+Instalace služby Service1...
+Služba Service1 byla úspěšně nainstalována.
+Vytváření zdroje EventLog Service1 v protokolu Application...
+Potvrzování sestavení C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe
+Zasažené parametry:
+   logtoconsole = 
+   logfile = C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.InstallLog
+   assemblypath = C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe

@@ -10,3 +10,15 @@ C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\obj\Debug\Inventory.cs
 C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\obj\Debug\Inventory.csproj.CopyComplete
 C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\obj\Debug\Inventory.exe
 C:\Users\dcif01\Documents\C#_services\Inventory\Inventory\obj\Debug\Inventory.pdb
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe.config
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.exe
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\Inventory.pdb
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\bin\Debug\System.Management.Automation.dll
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.csproj.AssemblyReference.cache
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.csproj.SuggestedBindingRedirects.cache
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.ProjectInstaller.resources
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.csproj.GenerateResource.cache
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.csproj.CoreCompileInputs.cache
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.csproj.CopyComplete
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.exe
+C:\Users\dcif01\Documents\LKQ_INVENTORY\Inventory\Inventory\obj\Debug\Inventory.pdb

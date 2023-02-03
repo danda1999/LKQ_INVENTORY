@@ -1,0 +1,1 @@
+python .\inventory_server.py
