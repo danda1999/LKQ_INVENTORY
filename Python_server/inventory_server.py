@@ -44,7 +44,7 @@ def chat_server():
                     for x in KLIENT_LIST:
                         if(sock == x['fd']):
                             if(x['name'] == None):
-                                x['name'] = str(data)
+                                x['name'] = str(data.decode())
                             else:
                                 data = json.loads(data)
                                 with open(str(x['name']) + ".json", "w") as wf:

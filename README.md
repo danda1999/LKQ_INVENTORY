@@ -17,7 +17,7 @@ Python script, který představuje serverouv část spojení Server--Client.
 
 ## Popis algoritmu:
 1. Po zapnutí serveru se zablokuje příslušná IP adresa a PORT na kterém bude server poslouchat.
-2. Následně server přechazí do hlavní smyčky, kde je využit nástroj <sub>Select</sub>, která při zaslaní serverového socketu přída příslušný identifikátor socketu clienta do seznamu připojených soketů.
+2. Následně server přechazí do hlavní smyčky, kde je využit nástroj **Select**, která při zaslaní serverového socketu přída příslušný identifikátor socketu clienta do seznamu připojených soketů.
 4. Pokud příjde soket, který je již v seznamu tak nejdříve server příjme jméno souboru, který bude příjmat a následně příjme příslušný file.
 5. Ten příslušný data naparsuje a uloží do vytvořený třídy představujíc počítač a monitor.
 6. Přijatý soubor následně uluží do zvoelné složky pro zpětnou kontrolu.
