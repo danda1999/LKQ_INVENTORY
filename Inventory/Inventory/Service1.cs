@@ -19,9 +19,9 @@ namespace Inventory
     public partial class Service1 : ServiceBase
     {
 
-        
 
-       Timer timer = new Timer();
+
+        Timer timer = new Timer();
         public Service1()
         {
             InitializeComponent();
@@ -85,7 +85,7 @@ namespace Inventory
 
                     NetworkCommunication(sender, localEndPoint);
 
-                    //File.Delete(Constanty.PATH_SHARE_FILE);
+                    File.Delete(Constanty.PATH_SHARE_FILE);
 
                 } 
                 
@@ -108,7 +108,7 @@ namespace Inventory
 
                 NetworkCommunication(sender, localEndPoint);
 
-                //File.Delete(Constanty.PATH_SHARE_FILE);
+                File.Delete(Constanty.PATH_SHARE_FILE);
             }
 
         }

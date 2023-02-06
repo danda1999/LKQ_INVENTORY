@@ -1,6 +1,0 @@
-Replace service: 02.06.2023 07:53
-Nelze se připojit k serveru pro zpracování json file: 02.06.2023 07:53
-End service: 02.06.2023 07:54
-Start service: 02.06.2023 07:54
-Services connection: 02.06.2023 07:54
-Connection close: 02.06.2023 07:54

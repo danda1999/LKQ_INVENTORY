@@ -2,6 +2,7 @@ import socket
 import sys
 import select
 import json
+import datetime
 
 HOST = '127.0.0.1' 
 SOCKET_LIST = []
@@ -39,24 +40,34 @@ def chat_server():
                 client['name'] = None
                 KLIENT_LIST.append(client)
             else:
-                data = sock.recv(RECV_BUFFER)
-                if data:
-                    for x in KLIENT_LIST:
-                        if(sock == x['fd']):
-                            if(x['name'] == None):
-                                x['name'] = str(data.decode())
-                            else:
-                                data = json.loads(data)
-                                with open(str(x['name']) + ".json", "w") as wf:
-                                    json.dump(data, wf, indent=3)
-                              
-                else:
-                    if sock in SOCKET_LIST:
-                        SOCKET_LIST.remove(sock)
-                        print("Client was discconnect")
+                try:
+                    data = sock.recv(RECV_BUFFER)
+                    if data:
                         for x in KLIENT_LIST:
                             if(sock == x['fd']):
-                                KLIENT_LIST.remove(x)
+                                if(x['name'] == None):
+                                    x['name'] = str(data.decode())
+                                else:
+                                    data = json.loads(data)
+                                    with open(str(x['name']) + ".json", "w") as wf:
+                                        json.dump(data, wf, indent=3)
+                                    print(data)
+                                
+                    else:
+                        if sock in SOCKET_LIST:
+                            SOCKET_LIST.remove(sock)
+                            print("Client was discconnect")
+                            for x in KLIENT_LIST:
+                                if(sock == x['fd']):
+                                    KLIENT_LIST.remove(x)
+                except:
+                    sock.close()
+                    SOCKET_LIST.remove(sock)
+                    print("Client was discconnect")
+                    for x in KLIENT_LIST:
+                        if(sock == x['fd']):
+                            KLIENT_LIST.remove(x)
+                    continue
                     
                     
                         
