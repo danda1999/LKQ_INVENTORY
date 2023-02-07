@@ -78,7 +78,6 @@ function Decode {
     }
 }
 $Computer = [Computer]::new()
-$jsonBase = @{}
 $date = Get-Date -Format "dddd MM/dd/yyyy HH:mm"
 
 $array = @{}
@@ -86,7 +85,7 @@ $array = @{}
 
 $computerName = hostname
 $computerManufacture = (Get-CimInstance -ClassName Win32_ComputerSystem).Manufacturer
-$computerSerial = Get-WmiObject win32_bios | select Serialnumber
+$computerSerial = Get-WmiObject win32_bios | Select-Object Serialnumber
 $ipv4 = (Get-NetIPAddress | Where-Object {$_.AddressState -eq "Preferred" -and $_.ValidLifetime -lt "24:00:00"}).IPAddress
 
 $Computer.setName($computerName)

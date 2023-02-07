@@ -1,0 +1,14 @@
+{
+   "Computer": {
+      "Monitors": [
+         {
+            "Manufacture": null,
+            "Serialnumber": "0\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+         }
+      ],
+      "Name": "NB10996",
+      "IPAddress": "192.168.50.237",
+      "Manufacturer": "LENOVO",
+      "Serialnumber": "@{Serialnumber=PF31GW1D}"
+   }
+}
