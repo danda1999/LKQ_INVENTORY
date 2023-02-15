@@ -2,7 +2,6 @@ import socket
 import sys
 import select
 import json
-import datetime
 import parser
 
 HOST = '127.0.0.1'
@@ -13,7 +12,6 @@ PORT = 11111
 
 
 def chat_server():
-
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))
@@ -40,32 +38,59 @@ def chat_server():
             else:
                 try:
                     data = sock.recv(RECV_BUFFER)
-                    if data:
-                        for x in KLIENT_LIST:
-                            if sock == x['fd']:
-                                if x['name'] is None:
-                                    x['name'] = str(data.decode())
-                                else:
-                                    data = json.loads(data)
-                                    parser.parser_computer(data)
-                                    with open(str(x['name']) + ".json", "w") as wf:
-                                        json.dump(data, wf, indent=3)
+                except:
+                    print("Client was discconnect")
+                    sock.close()
+                    continue
+                if data:
+                    if len(data) != 0:
+                        check = data
+                        print(str(check))
+                        if "quit" in str(check):
+                            sock.close()
+                            if sock in SOCKET_LIST:
+                                SOCKET_LIST.remove(sock)
+                                print("Client was discconnect")
+                                for y in KLIENT_LIST:
+                                    if sock == y['fd']:
+                                        KLIENT_LIST.remove(y)
+                        else:
+                            for x in KLIENT_LIST:
+                                if sock == x['fd']:
+                                    if x['name'] is None:
+                                        name = str(data.decode())
+                                        x['name'] = name
+                                        check = None
+                                    else:
+                                        if "quit" in str(check):
+                                            sock.close()
+                                            if sock in SOCKET_LIST:
+                                                SOCKET_LIST.remove(sock)
+                                                print("Client was discconnect")
+                                                for y in KLIENT_LIST:
+                                                    if sock == y['fd']:
+                                                        KLIENT_LIST.remove(y)
+                                        else:
+                                            data = json.loads(data)
+                                            parser.parser_computer(data)
+                                            with open(str(x['name']) + ".json", "w") as wf:
+                                                json.dump(data, wf, indent=3)
+                                            sock.close()
+                                            if sock in SOCKET_LIST:
+                                                SOCKET_LIST.remove(sock)
+                                                print("Client was discconnect")
+                                                for x in KLIENT_LIST:
+                                                    if sock == x['fd']:
+                                                        KLIENT_LIST.remove(x)
 
                     else:
+                        sock.close()
                         if sock in SOCKET_LIST:
                             SOCKET_LIST.remove(sock)
                             print("Client was discconnect")
                             for x in KLIENT_LIST:
                                 if sock == x['fd']:
                                     KLIENT_LIST.remove(x)
-                except:
-                    sock.close()
-                    SOCKET_LIST.remove(sock)
-                    print("Client was discconnect")
-                    for x in KLIENT_LIST:
-                        if sock == x['fd']:
-                            KLIENT_LIST.remove(x)
-                    continue
 
 
 if __name__ == '__main__':

@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Net.Sockets;
+using System.Xml.Linq;
 
 namespace Inventory
 {
@@ -128,6 +129,7 @@ namespace Inventory
 
                 if (File.Exists(Constanty.PATH_CONNECTION_TIME) && connection == true)
                 {
+                    int byteRecv = 0;
 
                     int substract = DateTime.Now.Subtract(File.GetLastWriteTime(Constanty.PATH_CONNECTION_TIME)).Days;
 
@@ -136,7 +138,7 @@ namespace Inventory
 
                         byte[] messageReceived = new byte[4049];
 
-                        int byteRecv = sender.Receive(messageReceived);
+                        byteRecv = sender.Receive(messageReceived);
 
                         string Hello_messege = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
 
@@ -149,26 +151,50 @@ namespace Inventory
                             sender.Send(name_array);
 
 
-                            sender.SendFile(Constanty.PATH_SHARE_FILE);
-                            
+                            byte[] file_array = File.ReadAllBytes(Constanty.PATH_SHARE_FILE);
+                            sender.Send(file_array);
 
-                            using (StreamWriter sw = new StreamWriter(Constanty.PATH_CONNECTION_TIME))
+
+                            messageReceived = new byte[4049];
+
+                            byteRecv = sender.Receive(messageReceived);
+
+                            if (byteRecv == 0)
                             {
-                                sw.WriteLine(DateTime.Now.ToString());
+                                using (StreamWriter sw = new StreamWriter(Constanty.PATH_CONNECTION_TIME))
+                                {
+                                    sw.WriteLine(DateTime.Now.ToString());
+                                }
                             }
 
-                            
+                        }
+                    } else
+                    {
+                        byte[] messageReceived = new byte[4049];
 
+                        byteRecv = sender.Receive(messageReceived);
+
+                        string Hello_messege = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
+
+
+                        if (Hello_messege.Equals("LKQ2023I"))
+                        {
+                            string name = Environment.MachineName;
+                            byte[] name_array = Encoding.ASCII.GetBytes(name);
+                            sender.Send(name_array);
+
+                            System.Threading.Thread.Sleep(60000);
+                            byte[] quite_message = Encoding.ASCII.GetBytes("quit");
+                            sender.Send(quite_message);
                         }
                     }
-                    sender.Disconnect(false);
-                    sender.Close();
 
                 } else if(!File.Exists(Constanty.PATH_CONNECTION_TIME) && connection == true){
+                    int byteRecv = 0;
 
                     byte[] messageReceived = new byte[4049];
 
-                    int byteRecv = sender.Receive(messageReceived);
+                    byteRecv = sender.Receive(messageReceived);
 
                     string Hello_messege = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
 
@@ -181,24 +207,23 @@ namespace Inventory
                         byte[] name_array = Encoding.ASCII.GetBytes(name);
                         sender.Send(name_array);
 
-                        sender.SendFile(Constanty.PATH_SHARE_FILE);
+                        byte[] file_array = File.ReadAllBytes(Constanty.PATH_SHARE_FILE);
+                        sender.Send(file_array);
 
+                        messageReceived = new byte[4049];
 
-                        using (StreamWriter sw = new StreamWriter(Constanty.PATH_CONNECTION_TIME))
-                        {
-                            sw.WriteLine(DateTime.Now.ToString());
+                        byteRecv = sender.Receive(messageReceived);
+
+                        if(byteRecv == 0) {
+                            using (StreamWriter sw = new StreamWriter(Constanty.PATH_CONNECTION_TIME))
+                            {
+                                sw.WriteLine(DateTime.Now.ToString());
+                            }
                         }
 
                     }
 
-                    sender.Disconnect(false);
-                    sender.Close();
-                }
-
-                // Close Socket using
-                // the method Close()
-                
-                
+                }                
 
                 using (StreamWriter sw = new StreamWriter(Constanty.PATH_FILE_LOGS, true))
                 {
